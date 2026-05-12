@@ -1,0 +1,76 @@
+@startuml
+scale 0.8
+skinparam classAttributeIconSize 0
+skinparam classFontStyle Bold
+skinparam style strictuml
+hide empty members
+!pragma layout smetana
+
+package projetInscryption{
+    class Game{
+
+    }
+
+    class Card{
+        - m_hp : int
+    }
+
+    class Animaux{
+        - m_attack : int
+        - m_blood : int
+        - m_bones : int
+        - m_flying : boolean
+    }
+
+    class Obstacles{
+
+    }
+
+    class Chat{
+
+    }
+    class Grizzly{
+
+    }
+    class Coyote{
+
+    }
+    class Moineau{
+
+    }
+    class Corbeau{
+
+    }
+    class Ecureuil{
+
+    }
+    class Hermine{
+
+    }
+    class Louveteau{
+
+    }
+    class Loup{
+
+    }
+    class Punaise{
+
+    }
+}
+
+Card --> Animaux
+Card --> Obstacles
+
+
+Animaux --> Chat
+Animaux --> Grizzly
+Animaux --> Coyote
+Animaux --> Moineau
+Animaux --> Corbeau
+Animaux --> Ecureuil
+Animaux --> Hermine
+Animaux --> Louveteau
+Animaux --> Loup
+Animaux --> Punaise
+
+@enduml
