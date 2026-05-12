@@ -7,23 +7,65 @@ hide empty members
 !pragma layout smetana
 
 package projetInscryption{
-    class Game{
+    class Jeu{
+
+    }
+
+    class Partie{
+        - m_nb_tours : Integer
+        - m_degatsJoueurTour : ArrayList<Integer>
+        - m_degatsAdversaireTour : ArrayList<Integer>
+    }
+
+    class Joueur {
+        - m_main : Main
+        - m_balance : Integer
+        - m_cartesAJouer : ArrayList<Card>
+
+        + piocher() : ArrayList<Card>
+        + placerCartes(carte : Card, position : Integer) : ArrayList<Card>
+
+
+    }
+
+    class PlateauJoueur{
+        - m_plateau : ArrayList<Card>
+        + verifObstacle(position : Integer) : boolean
+    }
+
+    class Adversaire {
+        - m_main
+        - m_balance : Integer
+        - m_prochainesCartes : ArrayList<Card>
+        + piocher() : ArrayList<Card>
+        + placerCartesAJouer : ArrayList<Card>
+    }
+
+    class PlateauAdversaire {
+        - m_plateauCartesJouees : ArrayList<Card>
+        - m_plateauProchainesCartes : ArrayList<Card>
+    }
+
+    class Main {
+        - m_main : ArrayList<Card>
+    }
+
+    class Pioche {
+        - m_pioche : ArrayList<Card>
+        - m_nbCartes : Integer
 
     }
 
     class Card{
-        - m_hp : int
+        - m_nom : String
+        - m_hp : Integer
     }
 
     class Animaux{
-        - m_attack : int
-        - m_blood : int
-        - m_bones : int
+        - m_attack : Integer
+        - m_blood : Integer
+        - m_bones : Integer
         - m_flying : boolean
-    }
-
-    class Obstacles{
-
     }
 
     class Chat{
@@ -56,11 +98,22 @@ package projetInscryption{
     class Punaise{
 
     }
+
+    class Obstacles{
+
+    }
+
+    class Rocher {
+
+    }
+
+    class Sapin{
+
+    }
 }
 
 Card --> Animaux
 Card --> Obstacles
-
 
 Animaux --> Chat
 Animaux --> Grizzly
@@ -72,5 +125,19 @@ Animaux --> Hermine
 Animaux --> Louveteau
 Animaux --> Loup
 Animaux --> Punaise
+
+Obstacles --> Rocher
+Obstacles --> Sapin
+
+Jeu --> Partie
+
+Jeu --> Joueur
+Jeu --> Adversaire
+Joueur --> Main
+Adversaire --> Main
+Partie --> Pioche
+
+Adversaire --> PlateauAdversaire
+Joueur --> PlateauJoueur
 
 @enduml
