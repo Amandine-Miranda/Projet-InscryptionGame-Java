@@ -1,143 +1,270 @@
-@startuml
-scale 0.8
-skinparam classAttributeIconSize 0
-skinparam classFontStyle Bold
+@startuml Inscryption
+scale 0.5
 skinparam style strictuml
-hide empty members
-!pragma layout smetana
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+hide empty methods
+hide empty attributes
 
-package projetInscryption{
-    class Jeu{
+title INSCRYPTION - UML Phase 1
 
+package "Jeu" {
+
+    class Jeu {
+        - m_nbPartiesGagneesJoueur : int
+        - m_nbPartiesGagneesIA : int
+        - m_partieCourante : Partie
+
+        + lancerJeu() : void
+        + lancerNouvellePartie() : void
+        + verifierVictoireFinale() : boolean
     }
 
-    class Partie{
-        - m_nb_tours : Integer
-        - m_degatsJoueurTour : ArrayList<Integer>
-        - m_degatsAdversaireTour : ArrayList<Integer>
+    class Partie {
+        - m_numeroPartie : int
+        - m_numeroTour : int
+        - m_score : int
+        - m_plateau : Plateau
+        - m_pioche : Pioche
+        - m_joueur : JoueurHumain
+        - m_adversaire : IA
+        - m_historiqueDegats : ArrayList<String>
+
+        + initialiser() : void
+        + jouerTourJoueur() : void
+        + jouerTourIA() : void
+        + resoudreAttaques() : void
+        + mettreAJourScore(valeur : int) : void
+        + verifierFinPartie() : boolean
+        + ajouterCarteRecompense(carte : CarteAnimal) : void
     }
 
-    class Joueur {
+    abstract class Joueur {
+        - m_nom : String
         - m_main : Main
-        - m_balance : Integer
-        - m_cartesAJouer : ArrayList<Card>
+        - m_os : int
 
-        + piocher() : ArrayList<Card>
-        + placerCartes(carte : Card, position : Integer) : ArrayList<Card>
-
-
+        + piocher(pioche : Pioche) : void
+        + jouerTour() : void
+        + placerCarte(
+            carte : CarteAnimal,
+            position : Position
+        ) : void
+        + sacrifierCarte(position : Position) : void
+        + peutJouerCarte(carte : CarteAnimal) : boolean
+        + retirerCarteMain(carte : Carte) : void
+        + ajouterOs(nombre : int) : void
     }
 
-    class PlateauJoueur{
-        - m_plateau : ArrayList<Card>
-        + verifObstacle(position : Integer) : boolean
+    class JoueurHumain {
+        + choisirAction() : Commande
     }
 
-    class Adversaire {
-        - m_main
-        - m_balance : Integer
-        - m_prochainesCartes : ArrayList<Card>
-        + piocher() : ArrayList<Card>
-        + placerCartesAJouer : ArrayList<Card>
-    }
+    class IA {
+        - m_cartesAnnoncees : ArrayList<CarteAnimal>
 
-    class PlateauAdversaire {
-        - m_plateauCartesJouees : ArrayList<Card>
-        - m_plateauProchainesCartes : ArrayList<Card>
+        + choisirCarteAJouer() : CarteAnimal
+        + choisirPosition() : Position
+        + preparerTourSuivant() : void
     }
 
     class Main {
-        - m_main : ArrayList<Card>
+        - m_cartes : ArrayList<Carte>
+
+        + ajouterCarte(carte : Carte) : void
+        + retirerCarte(carte : Carte) : void
+        + getCarte(index : int) : Carte
+        + contient(carte : Carte) : boolean
+        + taille() : int
     }
 
     class Pioche {
-        - m_pioche : ArrayList<Card>
-        - m_nbCartes : Integer
+        - m_cartes : ArrayList<Carte>
 
+        + piocher() : Carte
+        + ajouterCarte(carte : Carte) : void
+        + melanger() : void
+        + estVide() : boolean
+        + taille() : int
     }
 
-    class Card{
-        - m_nom : String
-        - m_hp : Integer
+    class Plateau {
+        - m_ligneAdverse : ArrayList<Emplacement>
+        - m_ligneJoueur : ArrayList<Emplacement>
+
+        + placerCarte(
+            carte : Carte,
+            position : Position
+        ) : boolean
+
+        + retirerCarte(position : Position) : void
+        + getCarte(position : Position) : Carte
+        + emplacementLibre(position : Position) : boolean
+        + getCarteEnFace(
+            position : Position
+        ) : Carte
     }
 
-    class Animaux{
-        - m_attack : Integer
-        - m_blood : Integer
-        - m_bones : Integer
-        - m_flying : boolean
+    class Emplacement {
+        - m_position : Position
+        - m_carte : Carte
+
+        + estLibre() : boolean
+        + placerCarte(carte : Carte) : void
+        + retirerCarte() : void
+        + getCarte() : Carte
     }
 
-    class Chat{
-
-    }
-    class Grizzly{
-
-    }
-    class Coyote{
-
-    }
-    class Moineau{
-
-    }
-    class Corbeau{
-
-    }
-    class Ecureuil{
-
-    }
-    class Hermine{
-
-    }
-    class Louveteau{
-
-    }
-    class Loup{
-
-    }
-    class Punaise{
-
+    enum Position <<enumerate>> {
+        A1
+        A2
+        A3
+        A4
+        B1
+        B2
+        B3
+        B4
     }
 
-    class Obstacles{
+    class GestionnaireCombat {
+        + attaquer(
+            attaquant : CarteAnimal,
+            defenseur : Carte
+        ) : int
 
+        + attaquerDirectement(
+            attaquant : CarteAnimal
+        ) : int
     }
 
-    class Rocher {
+    class AffichageConsole {
+        + afficherPlateau(
+            plateau : Plateau
+        ) : void
 
+        + afficherMain(
+            main : Main
+        ) : void
+
+        + afficherScore(score : int) : void
+        + afficherMessage(message : String) : void
     }
 
-    class Sapin{
+    class ControleurJeu {
+        - m_scanner : Scanner
 
+        + lireCommande() : Commande
+        + executerCommande(
+            commande : Commande
+        ) : void
+    }
+
+    class Commande {
+        - m_type : TypeCommande
+        - m_arguments : ArrayList<String>
+
+        + getType() : TypeCommande
+        + getArguments() : ArrayList<String>
+    }
+
+    enum TypeCommande <<enumerate>> {
+        PIOCHER
+        PLACER
+        FIN
     }
 }
 
-Card --> Animaux
-Card --> Obstacles
+package "Cartes" {
 
-Animaux --> Chat
-Animaux --> Grizzly
-Animaux --> Coyote
-Animaux --> Moineau
-Animaux --> Corbeau
-Animaux --> Ecureuil
-Animaux --> Hermine
-Animaux --> Louveteau
-Animaux --> Loup
-Animaux --> Punaise
+    interface Attaquable {
+        + subirDegats(degats : int) : void
+        + estDetruite() : boolean
+    }
 
-Obstacles --> Rocher
-Obstacles --> Sapin
+    abstract class Carte {
+        - m_nom : String
+        - m_pointsVie : int
 
-Jeu --> Partie
+        + subirDegats(degats : int) : void
+        + estDetruite() : boolean
+        + getNom() : String
+        + getPointsVie() : int
+    }
 
-Jeu --> Joueur
-Jeu --> Adversaire
-Joueur --> Main
-Adversaire --> Main
-Partie --> Pioche
+    abstract class CarteAnimal {
+        - m_attaque : int
+        - m_coutSang : int
+        - m_coutOs : int
+        - m_volant : boolean
 
-Adversaire --> PlateauAdversaire
-Joueur --> PlateauJoueur
+        + attaquer(cible : Carte) : int
+        + attaqueDirecte() : boolean
+        + getAttaque() : int
+        + getCoutSang() : int
+        + getCoutOs() : int
+        + estVolant() : boolean
+    }
+
+    abstract class CarteObstacle {
+
+    }
+
+    class Chat
+    class Grizzly
+    class Coyote
+    class Moineau
+    class Corbeau
+    class Ecureuil
+    class Hermine
+    class Louveteau
+    class Loup
+    class Punaise
+
+    class Rocher
+    class Sapin
+}
+
+Partie *-- Plateau
+Partie *-- Pioche
+Partie *-- JoueurHumain
+Partie *-- IA
+Partie --> GestionnaireCombat
+Partie --> AffichageConsole
+Partie --> ControleurJeu
+
+Joueur *-- Main
+
+Plateau *-- Emplacement
+
+Emplacement --> Carte
+
+Attaquable --> Carte
+
+Carte --> CarteAnimal
+Carte --> CarteObstacle
+
+JoueurHumain --|> Joueur
+IA --|> Joueur
+
+CarteAnimal --> Chat
+CarteAnimal --> Grizzly
+CarteAnimal --> Coyote
+CarteAnimal --> Moineau
+CarteAnimal --> Corbeau
+CarteAnimal --> Ecureuil
+CarteAnimal --> Hermine
+CarteAnimal --> Louveteau
+CarteAnimal --> Loup
+CarteAnimal --> Punaise
+
+CarteObstacle --> Rocher
+CarteObstacle --> Sapin
+
+ControleurJeu --> Commande
+
+Joueur .> Position
+IA .> Position
+Plateau .> Position
+Emplacement .> Position
 
 @enduml
