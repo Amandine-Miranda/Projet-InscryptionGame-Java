@@ -240,8 +240,8 @@ Emplacement --> Carte
 
 Attaquable --> Carte
 
-Carte --> CarteAnimal
-Carte --> CarteObstacle
+Carte --|> CarteAnimal
+Carte --|> CarteObstacle
 
 JoueurHumain --|> Joueur
 IA --|> Joueur
