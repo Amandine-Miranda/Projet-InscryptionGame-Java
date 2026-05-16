@@ -154,9 +154,7 @@ package "Jeu" {
         - m_scanner : Scanner
 
         + lireCommande() : Commande
-        + executerCommande(
-            commande : Commande
-        ) : void
+        + executerCommande(commande : Commande) : void
     }
 
     class Commande {
