@@ -1,4 +1,4 @@
-package Cartes;
+package cartes;
 
 public class CarteAnimal extends Carte{
     private int m_attaque;

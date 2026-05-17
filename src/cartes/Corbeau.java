@@ -1,4 +1,4 @@
-package Cartes;
+package cartes;
 
 public class Corbeau extends CarteAnimal{
     public Corbeau(){

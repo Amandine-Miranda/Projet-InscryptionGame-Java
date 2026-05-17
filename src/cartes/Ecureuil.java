@@ -1,4 +1,4 @@
-package Cartes;
+package cartes;
 
 public class Ecureuil extends CarteAnimal{
     public Ecureuil(){

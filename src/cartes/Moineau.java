@@ -1,4 +1,4 @@
-package Cartes;
+package cartes;
 
 public class Moineau extends CarteAnimal{
     public Moineau(){

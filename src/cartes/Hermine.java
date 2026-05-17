@@ -1,4 +1,4 @@
-package Cartes;
+package cartes;
 
 public class Hermine extends CarteAnimal{
     public Hermine(){

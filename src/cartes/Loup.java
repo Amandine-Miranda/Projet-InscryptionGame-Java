@@ -1,4 +1,4 @@
-package Cartes;
+package cartes;
 
 public class Loup extends CarteAnimal{
     public Loup(){

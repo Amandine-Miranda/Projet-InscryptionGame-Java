@@ -12,11 +12,14 @@ public class ControleurJeu {
     public void executerCommande(Commande commande) {
         switch (commande.getType()) {
             case PIOCHER:
-                piocher();
+                // action pour piocher
+                System.out.println("Je pioche !");
             case PLACER:
-                placer():
+                //action pour placer une carte
+                System.out.println("Je place une carte sur le terrain !");
             case FIN:
-                fin():
+                //action pour finir son tour
+                System.out.println("Je termine mon tour !");
             default:
                 System.out.println("Vide");
         }

@@ -1,4 +1,4 @@
-package Cartes;
+package cartes;
 
 public class Grizzly extends CarteAnimal{
     public Grizzly(){

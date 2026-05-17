@@ -1,4 +1,4 @@
-package Cartes;
+package cartes;
 
 public class Louveteau extends CarteAnimal{
     public Louveteau(){

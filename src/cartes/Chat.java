@@ -1,4 +1,4 @@
-package Cartes;
+package cartes;
 
 public class Chat extends CarteAnimal{
     public Chat(){

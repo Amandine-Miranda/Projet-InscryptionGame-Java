@@ -1,4 +1,4 @@
-package Cartes;
+package cartes;
 
 public class Rocher extends CarteObstacle{
     public Rocher(){
