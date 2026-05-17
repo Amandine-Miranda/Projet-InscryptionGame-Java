@@ -10,6 +10,13 @@ public class Plateau {
     private Carte m_carte;
     private Position m_position;
 
+    public Plateau(ArrayList<Emplacement> ligneAdverse, ArrayList<Emplacement> ligneJoueur, Carte carte, Position position) {
+        m_ligneAdverse = ligneAdverse;
+        m_ligneJoueur = ligneJoueur;
+        m_carte = carte;
+        m_position = position;
+    }
+
     public Carte getCarte(Position position) {
         return m_carte;
     }

@@ -9,7 +9,9 @@ public class Joueur {
     private CarteAnimal m_carte;
     private Position position;
 
-    //piocher
+    public void piocher(Pioche pioche) {
+        pioche.piocher();
+    }
 
     public void jouerTour() {
         System.out.println("C'est à votre tour !");
