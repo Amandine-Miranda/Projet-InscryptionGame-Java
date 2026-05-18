@@ -222,6 +222,10 @@ package "Cartes" {
     class Sapin
 }
 
+JoueurHumain .> TypeCommande
+ControleurJeu .> TypeCommande
+Commande .> TypeCommande
+
 Partie *-- Plateau
 Partie *-- Pioche
 Partie *-- JoueurHumain
