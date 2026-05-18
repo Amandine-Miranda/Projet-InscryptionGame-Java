@@ -82,7 +82,7 @@ package "Jeu" {
         - m_cartes : ArrayList<Carte>
 
         + piocher() : Carte
-        + ajouterCarte(carte : Carte) : void
+        + ajouterCarte(carteChoisie : Carte) : void
         + melanger() : void
         + estVide() : boolean
         + taille() : int

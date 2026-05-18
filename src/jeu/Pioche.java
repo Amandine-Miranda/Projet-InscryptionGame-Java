@@ -19,7 +19,7 @@ public class Pioche {
         return m_cartes.removeFirst();
     }
 
-    public void ajouterCarte(){
-        
+    public void ajouterCarte(Carte carteChoisie){
+        m_cartes.add(carteChoisie);
     }
 }
