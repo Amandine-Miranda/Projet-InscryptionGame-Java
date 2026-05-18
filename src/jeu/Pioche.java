@@ -18,4 +18,8 @@ public class Pioche {
 
         return m_cartes.removeFirst();
     }
+
+    public void ajouterCarte(){
+        
+    }
 }
