@@ -105,7 +105,7 @@ Des captures du jeu seront ajoutées prochainement.
 
 ## 👩‍💻 Réalisé par
 
-**Amandine Miranda**
+**Amandine Miranda, Jason Scott Bebey-Bena et Lenny Kastner**
 
 Projet universitaire réalisé dans le cadre de l'apprentissage du développement logiciel en Java.
 
@@ -113,4 +113,4 @@ Projet universitaire réalisé dans le cadre de l'apprentissage du développemen
 
 ## 📄 Licence
 
-Ce projet est distribué sous licence MIT.
+Ce projet est distribué sous licence [MIT](LICENSE).
