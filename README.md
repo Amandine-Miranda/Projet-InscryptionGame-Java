@@ -6,7 +6,7 @@
 
 ---
 
-## 📖 À propos du projet
+![## 📖 À propos du projet](illustration.jpg)
 
 Inscryption est un jeu de cartes stratégique mêlant deck-building, gestion de ressources et combats tactiques.
 
@@ -14,34 +14,12 @@ Cette version propose une adaptation console développée en Java, avec une arch
 
 ---
 
-## ✨ Fonctionnalités
+## 🛠️ Technologies utilisées
 
-### 🎴 Gestion des cartes
-
-* Création de différents types de cartes
-* Statistiques propres à chaque carte
-* Points de vie et puissance d'attaque
-* Gestion des capacités spéciales
-
-### ⚔️ Système de combat
-
-* Placement des cartes sur le plateau
-* Résolution automatique des attaques
-* Gestion des dégâts
-* Destruction des cartes éliminées
-
-### 🎮 Déroulement de partie
-
-* Gestion des tours
-* Interactions entre les cartes
-* Conditions de victoire et de défaite
-
-### 🧱 Architecture orientée objet
-
-* Héritage
-* Polymorphisme
-* Encapsulation
-* Utilisation d'UML pour la conception
+* Java
+* Programmation Orientée Objet (POO)
+* UML
+* Tests unitaires
 
 ---
 
@@ -84,22 +62,34 @@ Projet-InscryptionGame-Java
 
 ---
 
-## 📸 Captures d'écran
+## ✨ Fonctionnalités
 
-Des captures du jeu seront ajoutées prochainement.
+### 🎴 Gestion des cartes
 
-| Jeu     |
-| ------- |
-| À venir |
+* Création de différents types de cartes
+* Statistiques propres à chaque carte
+* Points de vie et puissance d'attaque
+* Gestion des capacités spéciales
 
----
+### ⚔️ Système de combat
 
-## 🛠️ Technologies utilisées
+* Placement des cartes sur le plateau
+* Résolution automatique des attaques
+* Gestion des dégâts
+* Destruction des cartes éliminées
 
-* Java
-* Programmation Orientée Objet (POO)
-* UML
-* Tests unitaires
+### 🎮 Déroulement de partie
+
+* Gestion des tours
+* Interactions entre les cartes
+* Conditions de victoire et de défaite
+
+### 🧱 Architecture orientée objet
+
+* Héritage
+* Polymorphisme
+* Encapsulation
+* Utilisation d'UML pour la conception
 
 ---
 
